@@ -1,0 +1,19 @@
+Creative Commons Attribution 4.0 International (CC-BY-4.0)
+
+The experiment data in this directory (RESULTS.md and the files under raw/)
+is licensed under the Creative Commons Attribution 4.0 International License.
+
+You are free to share and adapt this data for any purpose, including
+commercial use, as long as you give appropriate credit, provide a link to
+the license, and indicate if changes were made.
+
+Full license text: https://creativecommons.org/licenses/by/4.0/legalcode
+Human-readable summary: https://creativecommons.org/licenses/by/4.0/
+
+Attribution:
+  StaleBench experiment data, Copyright 2026 Karan Singh, licensed under
+  CC-BY-4.0. See CITATION.cff for the full citation.
+
+Note: this license applies to the data in the results/ directory only. The
+source code in the rest of the repository is licensed under the Apache
+License, Version 2.0 (see the top-level LICENSE file).
