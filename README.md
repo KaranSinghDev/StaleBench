@@ -2,7 +2,9 @@
 
 > A benchmark that measures answer freshness in Retrieval-Augmented Generation (RAG) systems.
 
-**Version 0.1.0** · Code: Apache-2.0 · Data: CC-BY-4.0
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.20649015.svg)](https://doi.org/10.5281/zenodo.20649015)
+
+**Version 0.1.0** · Code: Apache-2.0 · Data: CC-BY-4.0 · [Read the paper](https://doi.org/10.5281/zenodo.20649015)
 
 Most freshness tools check the index. They ask: is the new document stored? StaleBench checks the answer. It asks: after a fact changes, how long until the system gives the new answer, and how often does it keep giving the old one?
 
@@ -69,6 +71,8 @@ An `AnswerChecker` decides if an answer is correct. The default `TokenChecker` m
 
 ## Findings
 
+![Recovery rate by refresh policy, for three models, with Wilson 95 percent confidence intervals](docs/recovery.png)
+
 In experiments across model sizes, retrievers, and many random scenarios:
 
 - About 40 to 60 percent of answers stay stale even with immediate re-indexing. A fresh index does not give a fresh answer.
@@ -111,20 +115,20 @@ The test in `tests/test_ruler.py` checks that a fresh system scores higher than 
 
 ## How to cite
 
-If you use StaleBench in your work, please cite it. The repository includes a `CITATION.cff` file, so you can use the "Cite this repository" button on the project page. A BibTeX entry:
+If you use StaleBench in your work, please cite the paper:
 
 ```bibtex
-@software{singh_stalebench_2026,
-  author  = {Singh, Karan},
-  title   = {{StaleBench: A Benchmark for Answer Freshness in
-             Retrieval-Augmented Generation}},
-  year    = {2026},
-  version = {0.1.0},
-  url     = {https://github.com/KaranSinghDev/stalebench}
+@misc{singh_stalebench_2026,
+  author = {Singh, Karan},
+  title  = {{StaleBench: A Benchmark for Answer Freshness in
+            Retrieval-Augmented Generation}},
+  year   = {2026},
+  doi    = {10.5281/zenodo.20649015},
+  url    = {https://doi.org/10.5281/zenodo.20649015}
 }
 ```
 
-After the archived release is created, add the DOI to the `url` or a `doi` field.
+The repository also includes a `CITATION.cff` file, so you can use the "Cite this repository" button on the project page.
 
 ## License
 
