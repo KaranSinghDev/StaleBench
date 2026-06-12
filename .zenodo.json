@@ -1,0 +1,21 @@
+{
+  "title": "StaleBench: A Benchmark for Answer Freshness in Retrieval-Augmented Generation",
+  "description": "<p>StaleBench measures answer freshness in Retrieval-Augmented Generation (RAG) systems. Most freshness tools check whether the index holds the new document. StaleBench checks the answer: after a fact changes, how long until the system returns the new value, and how often it keeps returning the old one.</p><p>It reports two metrics, catch-up latency and stale-answer rate, across three refresh policies (never, batch, immediate), with Wilson 95 percent confidence intervals. Answers are scored by exact match against a controlled ground truth, so no language model acts as a judge. StaleBench works as a black-box tool against any RAG system whose documents can be changed and refreshed.</p><p>In experiments across model sizes and retrievers, about 40 to 60 percent of answers stayed stale even with immediate re-indexing. The cause is positional: when both the old and new documents are retrieved, the model tends to follow document order rather than recency. Placing the newest document last reduces the problem.</p>",
+  "upload_type": "software",
+  "access_right": "open",
+  "license": "Apache-2.0",
+  "creators": [
+    {
+      "name": "Singh, Karan"
+    }
+  ],
+  "keywords": [
+    "retrieval-augmented generation",
+    "RAG",
+    "benchmark",
+    "answer freshness",
+    "catch-up latency",
+    "evaluation",
+    "large language models"
+  ]
+}

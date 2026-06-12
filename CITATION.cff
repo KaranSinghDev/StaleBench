@@ -1,0 +1,34 @@
+cff-version: 1.2.0
+message: "If you use StaleBench in your work, please cite it using the metadata below."
+title: "StaleBench: A Benchmark for Answer Freshness in Retrieval-Augmented Generation"
+abstract: >-
+  StaleBench measures answer freshness in Retrieval-Augmented Generation (RAG)
+  systems. Most freshness tools check whether the index holds the new document.
+  StaleBench checks the answer: after a fact changes, how long until the system
+  returns the new value, and how often it keeps returning the old one. It
+  reports catch-up latency and stale-answer rate across refresh policies
+  (never, batch, immediate) and works as a black-box tool against any RAG
+  system whose documents can be changed and refreshed.
+type: software
+authors:
+  - family-names: Singh
+    given-names: Karan
+    email: karansingh25822@gmail.com
+version: 0.1.0
+date-released: "2026-06-12"
+license: Apache-2.0
+keywords:
+  - retrieval-augmented generation
+  - RAG
+  - benchmark
+  - answer freshness
+  - catch-up latency
+  - evaluation
+  - large language models
+repository-code: "https://github.com/USERNAME/stalebench"
+url: "https://github.com/USERNAME/stalebench"
+# After you create the Zenodo record, add the DOI here, for example:
+# identifiers:
+#   - type: doi
+#     value: 10.5281/zenodo.XXXXXXX
+#     description: "Archived software release"
