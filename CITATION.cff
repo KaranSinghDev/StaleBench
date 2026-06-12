@@ -25,10 +25,9 @@ keywords:
   - catch-up latency
   - evaluation
   - large language models
-repository-code: "https://github.com/KaranSinghDev/stalebench"
-url: "https://github.com/KaranSinghDev/stalebench"
-# After you create the Zenodo record, add the DOI here, for example:
-# identifiers:
-#   - type: doi
-#     value: 10.5281/zenodo.XXXXXXX
-#     description: "Archived software release"
+repository-code: "https://github.com/KaranSinghDev/StaleBench"
+url: "https://github.com/KaranSinghDev/StaleBench"
+identifiers:
+  - type: doi
+    value: 10.5281/zenodo.20649015
+    description: "Preprint describing StaleBench"
