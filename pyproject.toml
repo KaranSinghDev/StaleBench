@@ -8,7 +8,7 @@ version = "0.1.0"
 description = "A benchmark for answer-freshness in Retrieval-Augmented Generation"
 readme = "README.md"
 requires-python = ">=3.9"
-license = { text = "MIT" }
+license = { text = "Apache-2.0" }
 authors = [{ name = "Karan Singh" }]
 keywords = ["RAG", "retrieval-augmented-generation", "benchmark", "freshness", "evaluation", "LLM"]
 dependencies = ["numpy>=1.24", "scikit-learn>=1.3", "openai>=1.0"]
