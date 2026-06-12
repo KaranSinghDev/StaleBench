@@ -120,7 +120,7 @@ If you use StaleBench in your work, please cite it. The repository includes a `C
              Retrieval-Augmented Generation}},
   year    = {2026},
   version = {0.1.0},
-  url     = {https://github.com/USERNAME/stalebench}
+  url     = {https://github.com/KaranSinghDev/stalebench}
 }
 ```
 

@@ -25,8 +25,8 @@ keywords:
   - catch-up latency
   - evaluation
   - large language models
-repository-code: "https://github.com/USERNAME/stalebench"
-url: "https://github.com/USERNAME/stalebench"
+repository-code: "https://github.com/KaranSinghDev/stalebench"
+url: "https://github.com/KaranSinghDev/stalebench"
 # After you create the Zenodo record, add the DOI here, for example:
 # identifiers:
 #   - type: doi
