@@ -48,6 +48,27 @@ def run_policy(system: RAGSystem, scenario: Scenario, policy: str, *,
             for f in scenario.facts}
 
 
+def competence(system: RAGSystem, scenario: Scenario, *, checker: AnswerChecker = None,
+               trials: int = 1) -> dict:
+    """Control condition: can the system answer the NEW value when only the new document is
+    present (no old/new conflict)? If competence is low, a low recovery rate in the full
+    benchmark reflects task failure, not staleness. Returns {n, correct, rate, rate_ci}."""
+    from .metrics import wilson
+    from .corpus import Document
+    checker = checker or TokenChecker()
+    docs = list(scenario.distractors) + [
+        Document(f.statement(f.new), f"{f.id}:new") for f in scenario.facts]
+    correct = total = 0
+    for _ in range(trials):
+        system.index(docs)
+        for f in scenario.facts:
+            total += 1
+            if checker.classify(system.answer(f.query()), f.old, f.new) == "NEW":
+                correct += 1
+    rate = correct / total if total else 0.0
+    return {"n": total, "correct": correct, "rate": round(rate, 3), "rate_ci": wilson(correct, total)}
+
+
 def benchmark(system: RAGSystem, scenario: Scenario, *, checker: AnswerChecker = None,
               policies=POLICIES, trials: int = 1, horizon: int = 14, batch_T: int = 4,
               anti_flicker: int = 2):
