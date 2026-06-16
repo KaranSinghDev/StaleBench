@@ -7,6 +7,7 @@ It is a plain callable: `llm(query, context) -> answer`, which the reference RAG
 from __future__ import annotations
 import os
 import re
+import time
 
 _THINK = re.compile(r"<think>.*?</think>", re.DOTALL | re.IGNORECASE)
 
@@ -15,7 +16,7 @@ class OpenAICompatLLM:
     def __init__(self, model: str, base_url: str | None = None, api_key: str | None = None,
                  temperature: float = 0.0, seed: int | None = 42, max_tokens: int = 16,
                  prompt_template: str | None = None, timeout: float = 120,
-                 no_think: bool = False, strip_think: bool = True):
+                 no_think: bool = False, strip_think: bool = True, retries: int = 2):
         from openai import OpenAI
         base_url = base_url or os.environ.get("STALEBENCH_BASE_URL")
         api_key = api_key or os.environ.get("STALEBENCH_API_KEY", "not-needed")
@@ -26,6 +27,7 @@ class OpenAICompatLLM:
         self.max_tokens = max_tokens
         self.no_think = no_think        # append "/no_think" to disable reasoning (Qwen3+ convention)
         self.strip_think = strip_think  # remove any <think>...</think> block before scoring
+        self.retries = retries          # retry transient server errors (e.g. a model mid-unload)
         self.prompt_template = prompt_template or (
             "Use ONLY the context to answer. Reply with just the value, nothing else.\n"
             "Context: {context}\nQuestion: {query}\nAnswer:")
@@ -39,10 +41,18 @@ class OpenAICompatLLM:
         messages = [{"role": "user", "content": prompt}]
         kwargs = dict(model=self.model, messages=messages,
                       max_tokens=self.max_tokens, temperature=self.temperature)
-        try:
-            resp = self.client.chat.completions.create(seed=self.seed, **kwargs)
-        except TypeError:   # endpoint doesn't accept `seed`
-            resp = self.client.chat.completions.create(**kwargs)
+        resp = None
+        for attempt in range(self.retries + 1):
+            try:
+                try:
+                    resp = self.client.chat.completions.create(seed=self.seed, **kwargs)
+                except TypeError:   # endpoint doesn't accept `seed`
+                    resp = self.client.chat.completions.create(**kwargs)
+                break
+            except Exception:
+                if attempt >= self.retries:
+                    raise
+                time.sleep(min(2 * (attempt + 1), 10))   # transient (e.g. model mid-unload)
         out = resp.choices[0].message.content or ""
         if self.strip_think:
             out = _THINK.sub("", out)
