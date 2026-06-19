@@ -5,12 +5,12 @@ Measures how long after a fact changes a RAG system's *answer* becomes (and stay
 """
 from .corpus import Fact, Document, Scenario, make_scenario
 from .system import RAGSystem, AnswerChecker, TokenChecker
-from .runner import benchmark, run_policy, POLICIES
+from .runner import benchmark, run_policy, competence, POLICIES
 from .metrics import summarize, wilson
 
 __all__ = [
     "Fact", "Document", "Scenario", "make_scenario",
     "RAGSystem", "AnswerChecker", "TokenChecker",
-    "benchmark", "run_policy", "POLICIES", "summarize", "wilson",
+    "benchmark", "run_policy", "competence", "POLICIES", "summarize", "wilson",
 ]
-__version__ = "0.1.0"
+__version__ = "0.2.0"

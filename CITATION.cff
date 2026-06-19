@@ -14,8 +14,8 @@ authors:
   - family-names: Singh
     given-names: Karan
     email: karansingh25822@gmail.com
-version: 0.1.0
-date-released: "2026-06-12"
+version: 0.2.0
+date-released: "2026-06-15"
 license: Apache-2.0
 keywords:
   - retrieval-augmented generation

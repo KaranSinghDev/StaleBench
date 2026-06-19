@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "stalebench"
-version = "0.1.0"
+version = "0.2.0"
 description = "A benchmark for answer-freshness in Retrieval-Augmented Generation"
 readme = "README.md"
 requires-python = ">=3.9"
