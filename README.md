@@ -2,9 +2,9 @@
 
 > A benchmark that measures answer freshness in Retrieval-Augmented Generation (RAG) systems.
 
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.20649015.svg)](https://doi.org/10.5281/zenodo.20649015)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.20710012.svg)](https://zenodo.org/records/20710012)
 
-**Version 0.2.0** · Code: Apache-2.0 · Data: CC-BY-4.0 · [Read the paper](https://doi.org/10.5281/zenodo.20649015)
+**Version 0.2.1** · Code: Apache-2.0 · Data: CC-BY-4.0 · [Read the paper](https://doi.org/10.5281/zenodo.20710012)
 
 Most freshness tools check the index. They ask: is the new document stored? StaleBench checks the answer. It asks: after a fact changes, how long until the system gives the new answer, and how often does it keep giving the old one?
 
