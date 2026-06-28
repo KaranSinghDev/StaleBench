@@ -3,6 +3,8 @@
 > A benchmark that measures answer freshness in Retrieval-Augmented Generation (RAG) systems.
 
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.20710012.svg)](https://zenodo.org/records/20710012)
+[![tests](https://github.com/KaranSinghDev/StaleBench/actions/workflows/ci.yml/badge.svg)](https://github.com/KaranSinghDev/StaleBench/actions/workflows/ci.yml)
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/KaranSinghDev/StaleBench/blob/main/notebooks/demo.ipynb)
 
 **Version 0.2.1** · Code: Apache-2.0 · Data: CC-BY-4.0 · [Read the paper](https://doi.org/10.5281/zenodo.20710012)
 
@@ -33,7 +35,9 @@ This installs numpy, scikit-learn, and openai. For the dense retriever, also ins
 
 ## Quick start
 
-Point it at any OpenAI-compatible endpoint, such as OpenAI, OpenRouter, vLLM, Ollama, or LM Studio:
+No install needed to try it: open the [Colab demo](https://colab.research.google.com/github/KaranSinghDev/StaleBench/blob/main/notebooks/demo.ipynb), add your endpoint, and run.
+
+Locally, point it at any OpenAI-compatible endpoint, such as OpenAI, OpenRouter, vLLM, Ollama, or LM Studio:
 
 ```bash
 python -m stalebench --model qwen2.5-3b-instruct --base-url http://localhost:1234/v1
@@ -121,8 +125,10 @@ StaleBench is different on three points together: it measures catch-up latency a
 ```
 stalebench/            the library (corpus, system, runner, metrics, backends, reference RAG)
 examples/              a minimal custom RAGSystem you can copy
+notebooks/             a Colab demo you can run in the browser
 tests/                 metric-validation and checker tests
 results/               experiment data (RESULTS.md and raw per-fact records), CC-BY-4.0
+paper/                 the JOSS submission (paper.md)
 ```
 
 ## Scope and limits
